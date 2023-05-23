@@ -1,7 +1,7 @@
-// import s from './Home.module.css';
-import axios from "axios";
-
 import { useState, useEffect } from "react";
+
+import s from './Home.module.css';
+
 
 function Home() {
     const [res, setRes] = useState();
@@ -24,19 +24,14 @@ function Home() {
             })
         
     }, [URL])
-    console.log(res)
-    
-
-    
-    
+    console.log(res)    
 
     return (
         <>
-            <p>Home</p>
-            <ul>
+            <ul className={s.list}>
                 {res && res.results.map(card => {
                     return (<>
-                        <img src={`https://image.tmdb.org/t/p/w500${card.poster_path}`} />
+                        {/* <img alt="1" src={`https://image.tmdb.org/t/p/w500${card.poster_path}`} /> */}
                         <li key={card.id}>{card.title}</li>
                     </>
                     )
