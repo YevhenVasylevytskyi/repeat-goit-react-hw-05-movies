@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import s from './Home.module.css';
 
@@ -24,16 +25,18 @@ function Home() {
             })
         
     }, [URL])
-    console.log(res)    
+    // console.log(res)    
 
     return (
         <>
             <ul className={s.list}>
                 {res && res.results.map(card => {
-                    return (<>
-                        {/* <img alt="1" src={`https://image.tmdb.org/t/p/w500${card.poster_path}`} /> */}
-                        <li key={card.id}>{card.title}</li>
-                    </>
+                    return (
+                        /* <img alt="1" src={`https://image.tmdb.org/t/p/w500${card.poster_path}`} /> */
+                        <li key={card.id}>
+                            <Link to={`movies/${card.id}`}>{card.title}</Link>
+                        </li>
+                    
                     )
                 })}
             </ul>

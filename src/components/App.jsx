@@ -11,8 +11,8 @@ export const App = () => {
   return (
     <>
       <nav className={s.nav}>
-        <NavLink className={s.navLink}to="/">Home</NavLink>
-        <NavLink className={s.navLink}to="/movies">Movies</NavLink>
+        <NavLink className={s.navLink} to="/">Home</NavLink>
+        <NavLink className={s.navLink} to="/movies">Movies</NavLink>
       </nav>
       <div>
         <Routes>
