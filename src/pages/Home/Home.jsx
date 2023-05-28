@@ -1,36 +1,25 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { fetchPopularMovies } from "services/MovieService";
 
 import s from './Home.module.css';
 
 
 function Home() {
-    const [res, setRes] = useState();
-
-    const API_KEY = "fe0d397e19456f05f6bf4b38d9ef121b"
-
-    const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        fetch(URL)
+        fetchPopularMovies()
             .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-            })
-            .then(result => {
-                setRes(result)
-                // console.log(result)
-                return result;
-            })
-        
-    }, [URL])
-    // console.log(res)    
+                setMovies(response.results)
+            })        
+    }, [])
+    // console.log(movies)    
 
     return (
         <>
             <ul className={s.list}>
-                {res && res.results.map(card => {
+                {movies && movies.map(card => {
                     return (
                         /* <img alt="1" src={`https://image.tmdb.org/t/p/w500${card.poster_path}`} /> */
                         <li key={card.id}>
