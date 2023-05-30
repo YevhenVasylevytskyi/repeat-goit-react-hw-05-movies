@@ -19,11 +19,11 @@ function Home() {
     return (
         <>
             <ul className={s.list}>
-                {movies && movies.map(card => {
+                {movies && movies.map(movie => {
                     return (
                         /* <img alt="1" src={`https://image.tmdb.org/t/p/w500${card.poster_path}`} /> */
-                        <li key={card.id}>
-                            <Link to={`movies/${card.id}`}>{card.title}</Link>
+                        <li key={movie.id}>
+                            <Link to={`movies/${movie.id}`}>{movie.title}</Link>
                         </li>
                     
                     )

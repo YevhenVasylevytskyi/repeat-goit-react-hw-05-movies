@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { fetchDetailsMovie } from "services/MovieService";
 
 import s from './MovieDetails.module.css';
@@ -34,6 +34,7 @@ function MovieDetails() {
                     <Link to="reviews">Reviews</Link>
                 </li>
             </ul>
+            <Outlet />
         </>
         
     );

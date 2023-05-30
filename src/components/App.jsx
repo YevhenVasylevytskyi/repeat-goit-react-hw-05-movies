@@ -4,12 +4,14 @@ import Movies from "../pages/Movies";
 import MovieDetails from "../pages/MovieDetails";
 import Cast from "../components/Cast";
 import Reviews from "../components/Reviews";
+import Container from "./Container/Container";
 
 import s from "./App.module.css"
 
+
 export const App = () => {
   return (
-    <>
+    <Container>
       <nav className={s.nav}>
         <NavLink className={s.navLink} to="/">Home</NavLink>
         <NavLink className={s.navLink} to="/movies">Movies</NavLink>
@@ -18,11 +20,12 @@ export const App = () => {
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/movies" element={ <Movies /> } />
-          <Route path="/movies/:movieId" element={< MovieDetails />} />
-          <Route path="/movies/:movieId/cast" element={< Cast />} />
-          <Route path="/movies/:movieId/reviews" element={ < Reviews /> } />
+          <Route path="/movies/:movieId" element={<MovieDetails />} >  
+          <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
         </Routes>
       </div>
-    </>
+    </Container>
   );
 };
